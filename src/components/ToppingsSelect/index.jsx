@@ -30,7 +30,7 @@ const ToppingsSelect = () => {
         setPrice(price.toFixed(2));
         setAmount(amount);
     });
-  }
+  };
 
   return (
     <>
@@ -41,9 +41,7 @@ const ToppingsSelect = () => {
         {toppings.map((topping, index) => (
           <Topping
             topping={topping}
-            key={topping.name}
-            checked={topping.selected}
-            vegan={topping.vegan}
+            key={index}
             onSelectChange={(chosenItem) => handleToppingChange(index, chosenItem)}
           />
         ))}

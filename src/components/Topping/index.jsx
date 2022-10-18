@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Check from "../Check";
 import './style.css';
 
-const Topping = ({ topping, onSelectChange, checked, vegan }) => {
+const Topping = ({ topping, onSelectChange }) => {
 
   return (
     <div className="topping">
       <Check 
-        checked={checked} 
+        checked={topping.selected} 
         onChange={onSelectChange} 
-        vegan={vegan}
+        vegan={topping.vegan}
       />
       <span className="topping__content">
         {topping.name}: {topping.price} €
