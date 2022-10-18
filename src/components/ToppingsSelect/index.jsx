@@ -7,27 +7,30 @@ const ToppingsSelect = () => {
   const { toppings } = usePizza();
   const [pizzaToppings, setPizzaToppings] = useState(toppings);
   const [chosenItem, setChosenItem] = useState(false);
+  const [price, setPrice] = useState(0);
 
   const handleToppingChange = (index, chosenItem) => {
     const newToppings = [...pizzaToppings];
-    const x = newToppings[index].selected;
     newToppings[index].selected = chosenItem;
-    console.log(chosenItem)
-    console.log(newToppings[index])
     setPizzaToppings(newToppings);
     setChosenItem(chosenItem);
+    totalPrice(newToppings);
   };
 
-  const handleSelectChange = (index, selectedItem) => {
-    const newToppings = [...pizzaToppings];
-    newToppings.index = selectedItem;
-    setChosenItem(selectedItem)
+  const totalPrice = (chosenToppings) => {
+    let price = 0;
+    chosenToppings.forEach(item => {
+      if(item.selected === true) {
+        price += item.price;
+      }
+      return setPrice(price.toFixed(2));
+    });
   }
 
   return (
     <>
       <p>Choose as many toppings as you want</p>
-      <p>Selected toppings: 0, total price: 0 Euro</p>
+      <p>Selected toppings: 0, total price: {price} Euro</p>
 
       <div className="toppings">
         {toppings.map((topping, index) => (
