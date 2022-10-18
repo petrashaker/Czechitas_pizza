@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Topping from "../Topping";
 import "./style.css";
-import { usePizza } from "../../context/context";
+import { usePrefs } from "../../context/context";
 
 const ToppingsSelect = () => {
-  const { toppings } = usePizza();
+  const { toppings, veganOnly } = usePrefs();
   const [pizzaToppings, setPizzaToppings] = useState(toppings);
   const [chosenItem, setChosenItem] = useState(false);
   const [price, setPrice] = useState(0);
@@ -43,6 +43,7 @@ const ToppingsSelect = () => {
             topping={topping}
             key={topping.name}
             checked={topping.selected}
+            vegan={topping.vegan}
             onSelectChange={(chosenItem) => handleToppingChange(index, chosenItem)}
           />
         ))}
