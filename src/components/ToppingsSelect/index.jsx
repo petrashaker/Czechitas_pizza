@@ -4,7 +4,7 @@ import "./style.css";
 import { usePrefs } from "../../context/context";
 
 const ToppingsSelect = () => {
-  const { toppings, veganOnly } = usePrefs();
+  const { toppings } = usePrefs();
   const [pizzaToppings, setPizzaToppings] = useState(toppings);
   const [chosenItem, setChosenItem] = useState(false);
   const [price, setPrice] = useState(0);

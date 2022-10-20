@@ -3,7 +3,6 @@ import Check from "../Check";
 import './style.css';
 
 const Topping = ({ topping, onSelectChange }) => {
-
   return (
     <div className="topping">
       <Check 

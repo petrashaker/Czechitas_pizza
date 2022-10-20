@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { usePrefs } from "../../context/context";
-import './style.css';
+import "./style.css";
 
-const Header = ({onVegan}) => {
-    const {veganOnly} = usePrefs();
+const Header = () => {
+  const { onVegan } = usePrefs();
 
-    const [isVegan, setIsVegan] = useState(false);
-  const onVeganChange = () => {
-    onVegan()
-  }  
   return (
     <>
       <div className="pizza" />
